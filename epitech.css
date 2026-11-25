@@ -1,0 +1,114 @@
+/*
+ * Epitech look for the Faculty screens: white cards on a dotted light-gray page, a blue header, square corners, blue as
+ * the only accent, bold condensed uppercase titles ending in an underscore, monospace for times, codes and tags.
+ * Fonts come from the theme's font files: --font-heading (Anton) and --font-mono (IBM Plex Mono) are set by the screen
+ * when the theme has those files, and the body font (IBM Plex Sans) replaces the page font by itself. Without the
+ * files the generic names below are used, because CSS cannot load fonts or anything else from elsewhere.
+ * font-synthesis is off where a single-weight file is used, so the browser never fakes a bold on top of it.
+ * The selectors are the classes of the Faculty screen page (header, card, pill...).
+ */
+:root {
+  --epitech-blue: #0038ff;
+  --epitech-green: #00c37a;
+  --epitech-pink: #ff1fd1;
+  --display: var(--font-heading, "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif);
+  --data: var(--font-mono, ui-monospace, "JetBrains Mono", Menlo, monospace);
+}
+
+/* Dotted grid like the Epitech intranet background. The header and the cards paint over it. */
+.screen,
+.scene {
+  background-color: var(--page);
+  background-image: radial-gradient(circle, #cfd2d8 1px, transparent 1px);
+  background-size: 1.2rem 1.2rem;
+}
+
+/* The header is the page's blue band, so everything in it turns light. */
+.header {
+  border-bottom: 0;
+  background: var(--epitech-blue);
+}
+
+.header h1,
+.header .full-date,
+.header .clock,
+.header .weather {
+  color: #ffffff;
+}
+
+.header-brand p,
+.header .weekday,
+.header .weather-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.header .divider {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.header h1 {
+  font-family: var(--display);
+  font-synthesis: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.header h1::after {
+  content: "_";
+  color: var(--epitech-green);
+}
+
+.clock,
+.weekday {
+  font-family: var(--data);
+  font-synthesis: none;
+}
+
+.clock {
+  font-weight: 400;
+}
+
+/* A colour bar on top of each card, the way sections of the intranet are underlined. */
+.card {
+  border-top: 0.25rem solid var(--epitech-blue);
+}
+
+.card:nth-child(2n) {
+  border-top-color: var(--epitech-green);
+}
+
+.card:nth-child(3n) {
+  border-top-color: var(--epitech-pink);
+}
+
+.card h2 {
+  font-family: var(--display);
+  font-synthesis: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--epitech-blue);
+}
+
+/* The title is a flex row with a gap for its icon, so the underscore pulls back by that gap to touch the last letter. */
+.card h2::after {
+  content: "_";
+  margin-left: -0.8rem;
+}
+
+/* Times, tags and small data in monospace. The tags keep the colours the screen gives them, only their shape changes. */
+.pill,
+.ticker-tag,
+.today,
+.event-time strong,
+.room-name {
+  font-family: var(--data);
+  font-synthesis: none;
+}
+
+.pill,
+.ticker-tag {
+  border-radius: 0;
+  text-transform: uppercase;
+}

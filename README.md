@@ -34,3 +34,9 @@ Importing `theme.json` alone also works if the three fonts are already in the li
   IBM Plex Sans is the variable font; a door unit draws its regular weight.
 - The selectors are the classes of the Faculty screen page (`SmartCampus-FacultyScreens`, `apps/display/src/styles.css`). If that page
   is restyled, adjust `epitech.css`.
+
+## License
+
+Released under the [PolyForm Noncommercial License 1.0.0](LICENSE). You may use, modify and share the
+software for any noncommercial purpose; commercial use, including selling it, is not permitted.
+This is a source-available license, not an open-source one.
